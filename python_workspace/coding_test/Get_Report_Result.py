@@ -23,6 +23,4 @@ def solution(id_list, report, k):
         if report_count[iter] > k:
             temp.append = iter
             
-    
-        
-    return answer;
+    return answer
