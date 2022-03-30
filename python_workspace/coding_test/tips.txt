@@ -1,6 +1,6 @@
 
 문제 풀이
-1. dynamic programming 적용(점화식,...)
+1. dynamic programming 적용(점화식 세우기)
 2. 분할정복법 적용
 
 반복문
