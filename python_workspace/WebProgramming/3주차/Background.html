@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경 속성 예제</title>
+    <style>
+        body{
+            background-image: url("./imgs/BackgroundFront.png"), url("imgs/BackgroundBack.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: 0px 100px;
+        }
+        p{
+            font-size: 32px;
+            color: tomato;
+        }
+        .font_big{font-size: 50px;}
+        .font_small{font-size: 10px;}
+        .font_arial{font-family: Arial;}
+        .font_roman{font-family: 'Times New Roman', Times, serif;}
+        .font_italic{font-style: italic;}
+        .font_bold{font-weight:bold;}
+        .font_blue{color: blue;}
+        .font_center{text-align: center;}
+        .btn{
+            width: 150px;
+            height: 100px;
+            background-color: orange;
+            border: 10px solid white;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px green;
+        }
+        .btn>a{
+            display: block;
+            line-height: 100px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <p class="font_big font_arial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis mauris bibendum, pharetra velit in, pharetra justo. Pellentesque commodo ac neque quis sagittis. Donec maximus neque turpis, id mattis dolor maximus a. Nunc tincidunt id ex non convallis. Integer elementum odio eget congue aliquam. Donec consequat tristique tortor. Aenean auctor risus in nibh consequat, a tempus mauris vestibulum. Sed scelerisque fringilla tellus in pretium. Praesent urna felis, tempor ac porttitor eget, vestibulum et massa. Sed a justo lobortis, rutrum metus id, commodo nisl.</p>
+
+    <p class="font_small font_roman">Phasellus vehicula risus sem, non fermentum libero volutpat sed. Sed laoreet maximus elit, vitae porta turpis. Nullam at urna vitae est eleifend mollis pharetra at enim. Aliquam erat volutpat. Sed porta justo neque, nec varius metus tristique a. Aliquam pretium nibh at rhoncus facilisis. Aenean luctus suscipit sapien ut placerat. Vivamus velit risus, egestas vel commodo ut, pharetra sed nisl. Donec eleifend nibh id velit laoreet ultrices. Curabitur eget feugiat nulla. Sed nec urna urna. Donec faucibus finibus nulla aliquam sollicitudin. Aenean blandit orci quis diam euismod imperdiet. Suspendisse sed ullamcorper ex. Nam et nisi libero.</p>
+
+    <p class="font_italic font_bold font_roman">Aliquam eget rutrum lectus, et tincidunt nunc. Nam vitae enim ligula. Integer mattis eros sit amet elementum sollicitudin. Duis dictum id neque ac viverra. Nunc placerat molestie mi, non blandit massa consectetur quis. Vivamus non luctus eros. Integer ultrices metus consequat, tincidunt neque quis, consectetur est. Phasellus iaculis ornare elementum. Fusce vitae dui non nisl aliquam cursus.</p>
+
+    <p>Phasellus sed congue erat. Curabitur rhoncus fermentum lectus, vitae malesuada nunc tincidunt a. Nulla dictum dui in diam consequat, vel ultricies ligula imperdiet. Duis sollicitudin, arcu nec faucibus vulputate, ante urna dictum quam, nec finibus mauris elit quis lectus. Sed luctus tellus est, non efficitur eros dignissim eget. Cras quis auctor est. Donec pellentesque ipsum volutpat, molestie est quis, porttitor dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In eu felis sit amet sem tempor dictum et mollis ante. Pellentesque lectus ipsum, fringilla non turpis ut, faucibus tempus diam. Nullam nisi elit, semper at mi non, ullamcorper tempor velit. Nulla urna massa, maximus ut elit sed, efficitur eleifend nisl. Fusce suscipit vehicula nisi at mattis. Sed iaculis mauris ut urna tristique egestas.</p>
+
+    <p>Mauris ante sem, mattis vel orci eget, porttitor ornare ante. Aliquam volutpat neque sit amet mi iaculis varius. In vehicula egestas auctor. Nulla accumsan gravida dolor, quis efficitur diam placerat nec. Donec neque justo, tempor a tortor sed, feugiat volutpat felis. In risus turpis, dictum sed ligula quis, feugiat rutrum odio. Proin vitae nunc est. Curabitur a est in risus fringilla sollicitudin. Vivamus condimentum, purus vitae sollicitudin facilisis, nibh turpis commodo nulla, in dapibus felis purus ut urna. In mollis, ante id fermentum eleifend, enim felis bibendum quam, eget lobortis ipsum odio eu nisi. Nam quis erat sed neque aliquet luctus eget commodo urna. Nam et est ex. Integer nisl justo, eleifend vel nisi eleifend, consequat molestie enim.</p>
+    <h1 class="font_blue font_center font_bold">글자 속성 테스트</h1>
+    <div>
+        <a href="#" class="font_big btn font_center">Click</a>
+    </div>
+</body>
+</html>
