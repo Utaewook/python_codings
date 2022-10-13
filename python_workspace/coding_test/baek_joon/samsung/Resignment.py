@@ -75,7 +75,6 @@ schedule = [list(map(int, input().rstrip().split())) for _ in range(N)]
 
 counsel_queue = [0]*30
 
-<<<<<<< HEAD
 for i in range(N):
     a = max(schedule[i][1],counsel_queue[i+schedule[i][0]+1])
     for t in range(i+schedule[i][0]+1,N+2):
@@ -86,7 +85,7 @@ for i in range(N):
             counsel_queue[t] = max(a,counsel_queue[t])
 
 print(max(counsel_queue[:N+2]))
-=======
+
 sum = 0
 sequence = [1,1,1]
 
@@ -95,4 +94,3 @@ for i in range(N - 1,-1,-1):
         continue
     else:
         pass
->>>>>>> 6ffd63e49c873f18473b1bbb1a994b7f0a772d76

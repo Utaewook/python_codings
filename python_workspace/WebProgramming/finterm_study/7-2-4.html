@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inch cm</title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+        const input = document.querySelector('input')
+        const button = document.querySelector('button')
+        const p = document.querySelector('p')
+
+        button.addEventListener('click',()=>{
+            const inch = Number(input.value)
+            
+            if(isNaN(inch)){//숫자가 아니니?
+                p.textContent = '숫자를 입력해주세요'
+                return
+            }
+            const cm = inch*2.54
+            p.textContent = `${cm}cm`
+        })
+
+    })
+</script>
+
+<script>
+     document.addEventListener("DOMContentLoaded",()=>{
+        const input = document.querySelector('input')
+        const p = document.querySelector('#email')
+        const isEmail =(value)=>{
+            return (value.indexOf('@')>1)&&(value.split('@')[1].indexOf('.')>1)
+        }
+        input.addEventListener('keyup',(event)=>{
+             const value = event.currentTarget.value
+             if(isEmail(value)){
+                p.style.color = 'green'
+                p.textContent = `이메일 형식입니다.${value}`
+             }else{
+                p.style.color = 'red'
+                p.textContent = `이메일 형식이 아닙니다.${value}`
+             }
+        })
+     })
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+        const select = document.querySelector('select')
+        const p = document.querySelector('#select')
+
+        select.addEventListener("change",(event)=>{
+            const options = event.currentTarget.options
+            const index = event.currentTarget.options.selectedIndex
+
+            p.textContent = `선택: ${options[index].textContent}`
+        })
+    })
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+        const select = document.querySelector('select')
+        const p = document.querySelector('#select')
+
+        select.addEventListener("change",(event)=>{
+            const options = event.currentTarget.options
+            const list = []
+            for (const option of options){
+                if (option.selected){
+                    list.push(option.textContent)
+                }
+            }
+            p.textContent=`선택: ${list.join(', ')}`
+
+
+            p.textContent = `선택: ${options[index].textContent}`
+        })
+    })
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+        const imgs = document.querySelectorAll('img')
+    })
+</script>
+<body>
+    <input type="text">
+    <button>계산</button>
+    <p></p>
+    <p id="email"></p>
+
+    <div>
+        <select multiple><!-- 만약 라디오 버튼을 생성한다면 input 태그의 라디오 타입, name에 같은 값을 줘야 라디오 버튼으로 동작-->
+            <option>떡볶이</option>
+            <option>순대</option>
+            <option>오뎅</option>
+            <option>튀김</option>
+        </select>
+        <p id="select"></p>
+    </div>
+
+</body>
+</html>
