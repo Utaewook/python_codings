@@ -1,0 +1,29 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting</title>
+    <script>
+        printName("유우태욱")
+        function printName(name){
+            console.log(`나의 이름은 ${name}입니다.`)
+        }
+        printName('유태욱')
+        
+        console.log(num)
+        var num = 6// var = undefined로 초기화 해준다 // let const는 안됨
+        num = 9 
+
+        printName1('유우우우웅태욱')
+        const printName1 = (name)=>{//익명함수나 화살표 함수는 호이스팅이 안됨
+            console.log(`나의 이름은 ${name}입니다.`)
+        }
+        printName1('육태욱')
+    </script>
+ </head>
+ <body>
+    
+ </body>
+ </html>

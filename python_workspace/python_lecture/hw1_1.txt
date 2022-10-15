@@ -1,0 +1,24 @@
+
+1.1 원의 반지름 입력, 넓이 및 원둘레 계산, 출력 알고리즘의 유사코드 (pseudo code) 작성
+
+1.2 직사각형의 가로, 세로, 중심 좌표 입력, 지정된 중심좌표에
+    직사각형 그리기 알고리즘의 유사코드 (pseudo code) 작성
+
+1.3 이등변 삼각형의 밑변, 높이 및 중심좌표 입력, 지정된 중심좌표에
+   이등변 삼각형 그리기 알고리즘의 유사코드 (pseudo code) 작성
+
+
+
+
+Procedure My_Circle_Function()
+/* input argument: Circle Radius*/
+/* output result: Circle Area, Circumference */
+
+INIT radius = GET() // 원의 반지름을 입력 받는다.
+
+INIT area = 3.14 * radius * radius // 
+INIT circumference = 2 * 3.14 * radius //
+
+RETURN area, circumference // 
+
+End Procedure /* end of procedure My_Circle_Function()*/
