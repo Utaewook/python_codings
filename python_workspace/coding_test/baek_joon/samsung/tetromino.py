@@ -9,7 +9,7 @@ result = []
 visited = [[False] * col for _ in range(row)]
 
 
-def dfs(r, c, length):
+def dfs(r, c, answer, length):
     if length == 4:
         return paper[r][c]
     values = []
@@ -28,6 +28,6 @@ def dfs(r, c, length):
 for i in range(row):
     for j in range(col):
         visited[i][j] = True
-        result.append(dfs(i, j, 1))
+        result.append(dfs(i, j, 0, 1))
 
 print(max(result))
