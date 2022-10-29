@@ -2,10 +2,10 @@ test_case = int(input())
 
 
 def dfs(r,c,s):
-
+    pass
 
 def bfs(r,c,s):
-
+    pass
 
 for test in range(test_case):
     n = int(input())
