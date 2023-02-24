@@ -1,0 +1,22 @@
+        
+/*
+    파일명: hw1_1.txt
+    작성자: 유태욱
+    작성일자: 2022-09-05
+    주요기능: 원의 반지름을 입력 받은 후, 넓이 및 원 둘레 계산 후 출력 알고리즘 유사코드
+    최종수정일자:2022-09-05
+    수정내용: 최초작성
+*/
+
+Procedure My_Circle_Function()
+/* input argument: Circle Radius*/
+/* output result: Circle Area, Circumference */
+
+INIT radius = GET("원의 반지름을 입력: ") // 원의 반지름을 입력받는다.
+
+INIT area = 3.14 * radius * radius // 입력받은 반지름으로 원의 넓이를 계산한다.
+INIT circumference = 2 * 3.14 * radius // 입력받은 반지름으로 원의 둘레를 계산한다.
+
+PRINT(f"원의 넓이와 둘레: {area}, {circumference}") // 계산한 원의 넓이와 둘레를 출력한다.
+
+End Procedure /* end of procedure My_Circle_Function()*/
