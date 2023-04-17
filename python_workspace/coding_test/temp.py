@@ -29,30 +29,50 @@
 #
 # combinations([i for i in range(6)],2)
 
-import time
+from collections import deque
 
-s = '*'
-N = 100000000
+n = int(input())
 
-array = []
-string = ''
+maze = [[0 for _ in range(n)] for _ in range(n)]
+visited = [[False for _ in range(n)] for _ in range(n)]
 
-start = time.time()
-for _ in range(N):
-    array.append(s)
-print(f"array append = {time.time()-start}")
 
-start = time.time()
-tup = tuple(array)
-print(f"array to tuple = {time.time()-start}")
+def print_matrix(array):
+    print()
+    for i in range(len(array)):
+        print(*array[i])
 
-start = time.time()
-for _ in range(N):
-    string = string.join(s)
-print(f"string join = {time.time()-start}")
+    print()
 
-string = ''
-start = time.time()
-for _ in range(N):
-    string += s
-print(f"string + = {time.time()-start}")
+
+def bfs(start_r, start_c):
+    queue = deque()
+    queue.append((start_r, start_c))
+    maze[start_r][start_c] = 1
+    path = []
+
+    dr = (1, -1, 0, 0)
+    dc = (0, 0, -1, 1)
+
+    while queue:
+        curr_r, curr_c = queue.popleft()
+        visited[curr_r][curr_c] = True
+        for i in range(4):
+            next_r = curr_r + dr[i]
+            next_c = curr_c + dc[i]
+            print(queue)
+            print(next_r, next_c)
+
+            if next_r in [-1, n] or next_c in [-1, n]:
+                continue
+            if not visited[next_r][next_c]:
+                queue.append((next_r, next_c))
+                maze[next_r][next_c] = 1
+                path.append((next_r, next_c))
+    return path
+
+
+result = bfs(0, 0)
+print_matrix(maze)
+
+print(result)
