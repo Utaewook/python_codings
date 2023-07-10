@@ -13,7 +13,6 @@ def get_iceberg(r, c):
 
     while queue:
         curr_r, curr_c = queue.popleft()
-        melt(curr_r, curr_c)
         print(queue, curr_r, curr_c, f'year {year}')
 
         for i in range(4):
@@ -38,6 +37,7 @@ def melt(r, c):
             continue
         if ocean[next_r][next_c] == 0:
             melt_count += 1
+    print(f"({r},{c}) melt - {melt_count}")
     ocean[r][c] -= melt_count
     total_ice -= melt_count
 
@@ -56,12 +56,16 @@ print(total_ice)
 year = 0
 count_iceberg = 0
 while True:
-
     icebergs = set()
     for x in range(row):
         for y in range(col):
-            icebergs.add(get_iceberg(x, y))
-    print()
+            ice = get_iceberg(x, y)
+            print("ice = ",ice)
+            if ice:
+                icebergs.add(ice)
+                for ice_r,ice_c in ice:
+                    melt(ice_r,ice_c)
+
     for a in ocean:
         print(a)
     print()
@@ -69,6 +73,7 @@ while True:
     if len(icebergs) >= 2:
         print(year)
         break
-    if total_ice == 0:
+    if year == 10:
         print(0)
         break
+    year+=1
