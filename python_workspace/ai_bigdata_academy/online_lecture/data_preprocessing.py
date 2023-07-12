@@ -1,3 +1,5 @@
+import random
+
 import pandas as pd
 import numpy as np
 import copy
@@ -384,42 +386,109 @@ import copy
 
 # --------------- 그룹화 ---------------
 
-print('\n그룹화\n')
+# print('\n그룹화\n')
+#
+# df1 = pd.DataFrame(
+#     {'ID': [1, 2, 3, 4, 5], '가입일': ['2021-01-02', '2021-01-04', '2021-01-10', '2021-02-10', '2021-02-24'],
+#      '성별': ['F', 'M', 'F', 'M', 'M']})
+# df2 = pd.DataFrame(
+#     {'구매순서': [1, 2, 3, 4, 5], 'ID': [1, 1, 2, 4, 1], '구매월': [1, 1, 2, 2, 3], '금액': [1000, 1500, 2000, 3000, 4000]})
+#
+# print(df2.groupby(by=['ID'])['금액'].sum())
+# s2 = df2.groupby(by=['ID'])['금액'].sum()
+#
+# print(pd.merge(df1, s2, how='left', on='ID'))
+#
+# s3 = df2.groupby(by=['ID','구매월'])['금액'].sum()
+# print(s3)
+# print(pd.merge(df1,s3, how='left',on='ID'))
+#
+# s4 = df2.groupby(by=['ID','구매월'],as_index=False)['금액'].sum()
+# print(s4)
+# print(pd.merge(df1,s4, how='left',on='ID'))
+#
+# df = pd.DataFrame({'구매순서' : [1, 2, 3, 4, 5], 'ID' : [1, 1, 2, 4, 1], '구매월' : [1, 1, 2, 2, 3], '금액' : [1000, 1500, 2000, 3000, 4000], '수수료' : [100, 150, 200, 300, 400]})
+# print(df.groupby(by = ['ID'])['금액'].agg([sum, len]))
+# print(df.groupby(by = ['ID'], as_index = False)['금액'].agg([sum, len]))
+# df2 = df.groupby(by = ['ID'])['금액'].agg([sum, len])
+# df2.reset_index(inplace = True)
+# print(df2)
+#
+#
+# print(df.groupby(by = ['ID']).agg({'금액' : [max, min], '수수료' : min}))
+# df2 = df.groupby(by = ['ID']).agg({'금액' : [max, min], '수수료' : min})
+# df2.reset_index()
+# print(df2)
+# print(df2.columns)
+# print(df2.columns.values)
+#
+# df2.columns = ['_'.join(col) for col in df2.columns.values]
+# df2.reset_index(inplace=True)
+# print(df2)
 
-df1 = pd.DataFrame(
-    {'ID': [1, 2, 3, 4, 5], '가입일': ['2021-01-02', '2021-01-04', '2021-01-10', '2021-02-10', '2021-02-24'],
-     '성별': ['F', 'M', 'F', 'M', 'M']})
-df2 = pd.DataFrame(
-    {'구매순서': [1, 2, 3, 4, 5], 'ID': [1, 1, 2, 4, 1], '구매월': [1, 1, 2, 2, 3], '금액': [1000, 1500, 2000, 3000, 4000]})
 
-print(df2.groupby(by=['ID'])['금액'].sum())
-s2 = df2.groupby(by=['ID'])['금액'].sum()
+# --------------- 피벗 테이블 ---------------
+#
+# df = pd.DataFrame({'가입월':[1,1,1,2,2,3], '탈퇴월':[1,2,3,2,3,3],'탈퇴회원수':[101, 52, 30, 120,60,130]})
+#
+# pivot = pd.pivot_table(df,values='탈퇴회원수', index=['가입월'], columns=['탈퇴월'])
+# print(pivot)
+#
+# print(pd.pivot_table(df,values='탈퇴회원수', index=['가입월'], columns=['탈퇴월'], fill_value=0))
+#
+#
+# a = []
+# b = []
+#
+# for _ in range(100):
+#     a.append(random.randint(1,3))
+#     b.append(random.randint(10,100))
+#
+# df = pd.DataFrame({'품목':a,'크기':b})
+#
+# df['금액'] = df['품목']*50+df['크기']*200
+# df['수수료'] = df['금액']*0.1
+# df['수수료'] = df['수수료'].astype(int)
+#
+# fruit_name = {1:'토마토',2:'바나나',3:'사과'}
+# def fruit_size(g):
+#     if g<40:
+#         return "소"
+#     elif g<70:
+#         return "중"
+#     else:
+#         return "대"
+#
+# df['품목'] = df['품목'].map(fruit_name)
+# df['크기분류'] = df['크기'].apply(fruit_size)
+#
+# print(df)
+#
+# # 각 상품의 크기 별 판매 개수와 판매금액
+# print(pd.pivot_table(df,values='금액',index=['품목'],columns=['크기분류'], aggfunc=('count','sum'), fill_value=0))
+#
+# # 각 상품 항목 별, 크기별로 판매 개수와 판매 금액/ 수수료의 합 구하기
+# print(pd.pivot_table(df,index=['품목'], columns=['크기분류'],aggfunc={'금액':['count','sum'],'수수료':'sum'}))
 
-print(pd.merge(df1, s2, how='left', on='ID'))
 
-s3 = df2.groupby(by=['ID','구매월'])['금액'].sum()
-print(s3)
-print(pd.merge(df1,s3, how='left',on='ID'))
+# --------------- 파일 호출 및 저장 ---------------
 
-s4 = df2.groupby(by=['ID','구매월'],as_index=False)['금액'].sum()
-print(s4)
-print(pd.merge(df1,s4, how='left',on='ID'))
+df = pd.read_csv('data_files/과일가게.csv')
+print(df.head(),df.tail(),sep='\n\n')
 
-df = pd.DataFrame({'구매순서' : [1, 2, 3, 4, 5], 'ID' : [1, 1, 2, 4, 1], '구매월' : [1, 1, 2, 2, 3], '금액' : [1000, 1500, 2000, 3000, 4000], '수수료' : [100, 150, 200, 300, 400]})
-print(df.groupby(by = ['ID'])['금액'].agg([sum, len]))
-print(df.groupby(by = ['ID'], as_index = False)['금액'].agg([sum, len]))
-df2 = df.groupby(by = ['ID'])['금액'].agg([sum, len])
-df2.reset_index(inplace = True)
-print(df2)
+df = pd.read_csv('data_files/과일가게.csv', index_col=0) # 0번 컬럼이 index로 활용
+print(df.head(),df.tail(),sep='\n\n')
 
+df = pd.read_csv('data_files/read_sep.txt',index_col=0, sep='|')# sep 파라미터를 통해 데이터 간 구분자를 지정해서 입력 받을 수 있음
+print(df.head(),df.tail(),sep='\n\n')
 
-print(df.groupby(by = ['ID']).agg({'금액' : [max, min], '수수료' : min}))
-df2 = df.groupby(by = ['ID']).agg({'금액' : [max, min], '수수료' : min})
-df2.reset_index()
-print(df2)
-print(df2.columns)
-print(df2.columns.values)
+df = pd.read_csv('data_files/read_multi_header.csv', header=1)# header가 여러 줄 인경우
+print(df.head(),df.tail(),df.columns,sep='\n\n')
 
-df2.columns = ['_'.join(col) for col in df2.columns.values]
-df2.reset_index(inplace=True)
-print(df2)
+df = pd.read_csv('data_files/make_column_name.csv',index_col=0,names=['품목','크기','가격','수수료']) # 칼럼 명을 데이터를 받으면서 생성
+print(df.head(),df.tail(),sep='\n\n')
+
+df = pd.read_csv('data_files/과일가게.csv',usecols=['품목','크기'])  # 원하는 컬럼만 가져오고 싶을 때
+print(df.head(),df.tail(),sep='\n\n')
+
+df.to_csv('data_files/make_csv.csv')
