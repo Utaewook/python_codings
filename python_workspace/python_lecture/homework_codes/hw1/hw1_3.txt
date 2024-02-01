@@ -1,0 +1,32 @@
+        
+/*
+    파일명: hw1_3.txt
+    작성자: 유태욱
+    작성일자: 2022-09-05
+    주요기능: 이등변 삼각형의 가로, 세로, 중심 좌표 입력, 지정된 중심좌표에 이등변 삼각형을 그리는 알고리즘 유사코드
+    최종수정일자:2022-09-05
+    수정내용: 최초작성
+*/
+
+Procedure Triangle_Draw()
+/* input argument: Triangle width, height, center point*/
+/* output result: Triangle drawing */
+
+INIT width = GET("이등변 삼각형의 가로 입력: ") // 이등변 삼각형의 가로를 입력받는다.
+INIT height = GET("이등변 삼각형의 세로 입력: ") // 이등변 삼각형의 세로를 입력받는다.
+INIT point_x = GET("이등변 삼각형의 가로 좌표 입력: ") // 이등변 삼각형의 가로 좌표를 입력받는다.
+INIT point_y = GET("이등변 삼각형의 세로 좌표 입력: ") // 이등변 삼각형의 세로 좌표를 입력받는다.
+
+INIT angle = arctan(height/(width/2)) // 이등변 삼각형을 그리기 위한 각도 계산
+INIT line = sec(angle) * (width / 2)//이등변 삼각형의 빗변을 그리기 위한 빗변 길이 계산
+
+INIT start_x,start_y = point_x, point_y - (height / 3) * 2 // 이등변 삼각형을 그리기 시작할 좌표를 구한다(이등변 삼각형의 대칭축이 지나는 꼭짓점 좌표)
+
+set_start_point(start_x,start_y) // 그림 시작 커서의 위치를 지정한다.
+draw_line(line) // 빗변 선분을 그린다.
+turn_right(angle) // 그림 커서를 오른쪽으로 계산한 각도만큼 회전한다
+draw_line(width) // 밑변 선분을 그린다.
+turn_right(angle) // 그림 커서를 오른쪽으로 계산한 각도만큼 회전한다
+draw_line(line) // 빗변 선분을 그린다
+
+End Procedure /* end of procedure Triangle_Draw()*/

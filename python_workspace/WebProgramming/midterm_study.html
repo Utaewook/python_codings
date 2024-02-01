@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MidTerm Studing Page</title>
+        <style>
+            h1 {
+                color: gray;
+                
+                font-style: bold;
+            }
+            ul {
+                overflow: hidden;
+            }
+            li{
+                list-style: none;
+                float: left;
+                padding: 5px;
+            }
+            li:first-child{
+                border-radius: 10px 0 0 10px;
+            }
+            li:last-child{
+                border-radius: 0 10px 10px 0;
+            }
+            li:nth-child(2n){
+                background-color:chartreuse;
+            }
+            li:nth-child(2n+1){
+                background-color:crimson;
+            }
+            #box1{
+                width: 100px;height: 100px;
+                background-color: rebeccapurple;
+
+                /*margin과 padding속성 순서: 위쪽 오른쪽 아래쪽 왼쪽 (시계 방향)*/
+                margin: 0 30px 0 30px;
+                padding: 0 30px 0 30px;
+
+                border-radius: 50px 40px 30px 20px;
+                border-style: dotted;
+                border-color: aqua; 
+                /*블록과 인라인 블록은 4방향 모두의 margin padding 설정 가능
+                인라인은 좌우 margin padding 설정만 가능*/
+            }
+            body{
+                background-image: url("3주차/imgs/BackgroundFront.png"), url("3주차/imgs/BackgroundBack.png");
+                background-size: 100%;
+                background-repeat: no-repeat; /* repeat로 두면 그림이 반복되어서 나옴*/
+                background-attachment: fixed; /*scroll로 두면 스크롤 가능함*/
+                background-position: 0px 100px;/*키워드로 밑, 위등등으로 지정 가능*/
+            }
+            p{
+                font-style: italic;
+            }
+            .font_big{font-size: 50px;}
+            .font_small{font-size: 10px;}
+            .font_arial{font-family: Arial;}
+            .font_roman{font-family: 'Times New Roman', Times, serif;}
+            .font_italic{font-style: italic;}
+            .font_bold{font-weight:bold;}
+            .font_blue{color: blue;}
+            .font_center{text-align: center;}
+            .btn{
+                width: 150px;
+                height: 100px;
+                background-color: orange;
+                border: 10px solid white;
+                border-radius: 5px;
+                box-shadow: 5px 5px 5px green;
+            }
+            .btn>a{
+                display: block;
+                line-height: 100px;
+                text-decoration: none;
+            }
+            .position1{
+                /* 절대위치 좌표 : absolute,fixed
+                상대위치 좌표 : relative, static*/
+                position:relative;
+                width: 100px; height: 100px;
+            }
+            .position1:nth-child(1){
+                background-color: red;
+                left:10px; top: 10px;
+                z-index: 100;
+            }
+            .position1:nth-child(2){
+                background-color: green;
+                left:50px; top: 50px;
+                z-index: 10;
+            }
+            .position1:nth-child(3){
+                background-color: blue;
+                left:90px; top: 90px;
+                z-index: 1;
+            }
+            
+        </style>
+        <!--<link rel="stylesheet" href="style.css"> 스타일을 css파일로 받아오는 태그-->
+        <script>
+            alert("웹페이지를 보려면 확인을 누르세요")
+        </script>
+        <script src="js1.js"></script>
+    </head>
+    <body>
+        <h1 id="top"> 첫 번째 웹페이지 만들기</h1>
+        <h2> 두 번째 제목</h2>
+        <h3> 세 번째 제목</h3>
+        <hr>
+        <span>
+            <p>
+                <b>본문</b><i>부분</i> 
+            </p>
+            <a href="#">하이퍼 텍스트</a><br>
+            <a href="3주차/imgs/BackgroundFront.png">이미지 불러오기</a><br>
+            <a href="https://www.naver.com">네이버</a>
+            <a href="#period">본문으로 가기</a>
+            <a href="#bottom">맨 밑으로</a>
+        </span>
+        <span>
+            <hr>
+            <h3>글자 모양 태그</h3>
+            <p>
+                기준 단어<small>작은 글자-small</small><br>
+                기준 단어<sub>아래 첨자-sub</sub><br>
+                기준 단어<sup>위 첨자-sup</sup><br>
+                기준 단어<ins>밑줄 글자-ins</ins><br>
+                기준 단어<del>취소선이 그어진 글자-del</del><br>
+                <b>주의사항! 글자모양 태그내부에는 제목 글자 태그와 본문 글자 태그는 넣을 수 없다.</b><br>
+            </p>
+        </span>
+        <span>
+            <hr>
+            <h3>내비게이션 메뉴를 위한 목록 태그</h3>
+            <ul><i>순서 없는 리스트</i>
+                <li>사과</li>
+                <li>바나나</li>
+                <li>오렌지</li>
+            </ul>
+            <ol><i>순서 있는 리스트</i>
+                <li>물</li>
+                <li>콜라</li>
+                <li>맥주</li>
+            </ol>
+        </span>
+        <span>
+            <hr>
+            <h3>테이블 태그</h3>
+            <table border="1">
+                <thead>
+                    <th></th>
+                    <th>i</th>
+                    <th>이름</th>
+                    <th>학과</th>
+                    <th>성적</th>
+                </thead>
+                <tbody>
+                    <th rowspan="4">
+                        학생
+                    </th>
+                    <tr>
+                        <td>1</td>
+                        <td>홍길동</td>
+                        <td>경제학과</td>
+                        <td>4.3</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>아이작 뉴턴</td>
+                        <td>식물생산과학부</td>
+                        <td>3.8</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>유태욱</td>
+                        <td>컴퓨터공학과</td>
+                        <td>3.7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </span>
+        <span>
+            <hr>
+            <h3>미디어 태그</h3>
+            <img src="media/media_tags.png" alt="이미지가 없습니다."><br>
+            <audio src="media/2014영남대학교_교가.mp3" controls="controls"></audio><br>
+            <video src="media/2017교가영상.mp4" controls="controls"></video><br>
+        </span>
+        <span>
+            <hr>
+            <h3>입력 태그</h3>
+            <form action="#" method="GET">
+                <fieldset>
+                    <legend>입력 양식</legend>
+                    <input type="text" name="id_input"><br>
+                    <input type="password"><br>
+                    <input type="button" value="button"><br>
+                </fieldset>
+
+                <input type="checkbox" value="cb1">
+                <label for="cb1">1번</label><br>
+                <input type="checkbox" value="cb2">
+                <label for="cb2">2번</label><br>
+                <input type="checkbox" value="cb3">
+                <label for="cb3">3번</label><br>
+
+                <input type="file"><br>
+                <input type="hidden"><br>
+                <input type="image" value="img"><br>
+
+                <input type="radio" name="gender" value="m">
+                <label for="m">남자</label>
+                <input type="radio" name="gender" value="f">
+                <label for="f">여자</label><br>
+
+                <input type="reset"><br>
+                <input type="submit"><br>
+                <textarea></textarea>
+                <select>
+                    <optgroup label="유태욱">
+                        <option>유</option>
+                        <option>태</option>
+                        <option>욱</option>
+                    </optgroup>
+                    <optgroup label="웹프로그래밍">
+                        <option>웹</option>
+                        <option>프</option>
+                        <option>로</option>
+                        <option>그</option>
+                        <option>래</option>
+                        <option>밍</option>
+                    </optgroup>
+                </select>
+            </form>
+        </span>
+        <span>
+            <hr>
+            <h3>블록 형식과 인라인 형식</h3>
+            <div> div 태그 - 블록 형식</div>
+            <div> div 태그 - 블록 형식</div>
+            <div> div 태그 - 블록 형식</div>
+            <div> div 태그 - 블록 형식</div>
+            <span> span 태그 - 인라인 형식</span>
+            <span> span 태그 - 인라인 형식</span>
+            <span> span 태그 - 인라인 형식</span>
+            <span> span 태그 - 인라인 형식</span>
+        </span>
+        <div>
+            <hr>
+            <h3>시맨틱 웹</h3>
+            <img src="media/semantic_tags.png">
+        </div>
+        <div>
+            <hr>
+            <h3>CSS 선택자 종류</h3>
+            <img src="media/CSS_Selecter.png"><br>
+            <img src="media/CSS_Selecter2.png"><br>
+            <p>기본적으로 전체선택자(*), 태그 선택자(태그)  , 아이디 선택자(#아이디), 클래스 선택자(.클래스)가 많이 사용됨</p><br>
+            <p>아이디는 유일하며, 클래스는 중복되어 사용될 수 있어 클래스 선택자를 더 자주 사용한다.</p><br>
+            <p> :nth-child(수열) = 형제 관계에서 앞에서 수열 번째로 등장하는 태그 선택  </p><br>
+            <p> :nth-last-child(수열) = 형제 관계에서 뒤에서 수열 번째로 등장하는 태그 선택  </p><br>
+            
+        </div>
+        <div>
+            <hr>
+            <h3>CSS 속성</h3>
+            <ul>
+                <li>100</li>
+                <li>200</li>
+                <li>300</li>
+                <li>400</li>
+                <li>500</li>
+                <li>600</li>
+                <li>700</li>
+            </ul>
+            <h4 id="box1">박스 속성</h4>
+            <p>margin: 테두리와 다른 태그 사이의 테두리 바깥족 여백</p>
+            <p>border: 테두리</p>
+            <p>padding: 테두리와 글자 사이의 테두리 안쪽 여백 배경색은 padding 영역까지만 적용된다.</p>
+            <p class="font_big font_arial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis mauris bibendum, pharetra velit in, pharetra justo. Pellentesque commodo ac neque quis sagittis. Donec maximus neque turpis, id mattis dolor maximus a. Nunc tincidunt id ex non convallis. Integer elementum odio eget congue aliquam. Donec consequat tristique tortor. Aenean auctor risus in nibh consequat, a tempus mauris vestibulum. Sed scelerisque fringilla tellus in pretium. Praesent urna felis, tempor ac porttitor eget, vestibulum et massa. Sed a justo lobortis, rutrum metus id, commodo nisl.</p>
+        
+            <p class="font_small font_roman">Phasellus vehicula risus sem, non fermentum libero volutpat sed. Sed laoreet maximus elit, vitae porta turpis. Nullam at urna vitae est eleifend mollis pharetra at enim. Aliquam erat volutpat. Sed porta justo neque, nec varius metus tristique a. Aliquam pretium nibh at rhoncus facilisis. Aenean luctus suscipit sapien ut placerat. Vivamus velit risus, egestas vel commodo ut, pharetra sed nisl. Donec eleifend nibh id velit laoreet ultrices. Curabitur eget feugiat nulla. Sed nec urna urna. Donec faucibus finibus nulla aliquam sollicitudin. Aenean blandit orci quis diam euismod imperdiet. Suspendisse sed ullamcorper ex. Nam et nisi libero.</p>
+        
+            <p class="font_italic font_bold font_roman">Aliquam eget rutrum lectus, et tincidunt nunc. Nam vitae enim ligula. Integer mattis eros sit amet elementum sollicitudin. Duis dictum id neque ac viverra. Nunc placerat molestie mi, non blandit massa consectetur quis. Vivamus non luctus eros. Integer ultrices metus consequat, tincidunt neque quis, consectetur est. Phasellus iaculis ornare elementum. Fusce vitae dui non nisl aliquam cursus.</p>
+        
+            <p>Phasellus sed congue erat. Curabitur rhoncus fermentum lectus, vitae malesuada nunc tincidunt a. Nulla dictum dui in diam consequat, vel ultricies ligula imperdiet. Duis sollicitudin, arcu nec faucibus vulputate, ante urna dictum quam, nec finibus mauris elit quis lectus. Sed luctus tellus est, non efficitur eros dignissim eget. Cras quis auctor est. Donec pellentesque ipsum volutpat, molestie est quis, porttitor dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In eu felis sit amet sem tempor dictum et mollis ante. Pellentesque lectus ipsum, fringilla non turpis ut, faucibus tempus diam. Nullam nisi elit, semper at mi non, ullamcorper tempor velit. Nulla urna massa, maximus ut elit sed, efficitur eleifend nisl. Fusce suscipit vehicula nisi at mattis. Sed iaculis mauris ut urna tristique egestas.</p>
+        
+            <p>Mauris ante sem, mattis vel orci eget, porttitor ornare ante. Aliquam volutpat neque sit amet mi iaculis varius. In vehicula egestas auctor. Nulla accumsan gravida dolor, quis efficitur diam placerat nec. Donec neque justo, tempor a tortor sed, feugiat volutpat felis. In risus turpis, dictum sed ligula quis, feugiat rutrum odio. Proin vitae nunc est. Curabitur a est in risus fringilla sollicitudin. Vivamus condimentum, purus vitae sollicitudin facilisis, nibh turpis commodo nulla, in dapibus felis purus ut urna. In mollis, ante id fermentum eleifend, enim felis bibendum quam, eget lobortis ipsum odio eu nisi. Nam quis erat sed neque aliquet luctus eget commodo urna. Nam et est ex. Integer nisl justo, eleifend vel nisi eleifend, consequat molestie enim.</p>
+            
+            <a href="#" class="font_big btn font_center">Click</a>
+        </div>
+        <div>
+            <hr>
+            <h3>CSS 속성 - 위치 속성</h3>
+            <div>
+                <div class="position1"></div>
+                <div class="position1"></div>
+                <div class="position1"></div>
+            </div>
+        </div>
+        <div>
+            
+        </div>
+        <p id="period">
+            <hr>What is Lorem Ipsum?<br><br>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+            It has survived not only five centuries, but also the leap into electronic typesetting, 
+            remaining essentially unchanged. 
+            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br>
+
+            <hr>Why do we use it?<br><br>
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).<br>
+
+
+            <hr>Where does it come from?<br><br>
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.<br>
+
+            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+            <hr>Where can I get some?<br><br>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.<br>
+            <hr>
+        </p>
+        <p>
+            World temperatures are rising because of human activity, and climate change now threatens every aspect of human life.<br>
+
+            Left unchecked, humans and nature will experience catastrophic warming, with worsening droughts, greater sea level rise and mass extinction of species.<br>
+
+            We face a huge challenge, but there are potential solutions.<br>
+
+            What is climate change?<br><br>
+            Climate is the average weather in a place over many years. Climate change is a shift in those average conditions.<br>
+
+            The rapid climate change we are now seeing is caused by humans using oil, gas and coal for their homes, factories and transport.<br>
+
+            When these fossil fuels burn, they release greenhouse gases - mostly carbon dioxide (CO2). These gases trap the Sun's heat and cause the planet's temperature to rise.<br>
+
+            The world is now about 1.2C warmer than it was in the 19th Century - and the amount of CO2 in the atmosphere has risen by 50%.<br>
+
+            Bar chart showing how the world has been getting warmer between 1850 to 2020<br>
+            Temperature rises must slow down if we want to avoid the worst consequences of climate change, scientists say. They say global warming needs to be kept to 1.5C by 2100.<br>
+
+            However, unless further action is taken, the planet could still warm by more than 2C by the end of this century. A report in 2021 by the Climate Action Tracker group calculated that the world was heading for 2.4C of warming by the end of the century.<br>
+
+            If nothing is done, scientists think global warming could exceed 4C in the future, leading to devastating heatwaves, millions losing their homes to rising sea levels and irreversible loss of plant and animal species.<br>
+
+            What is the impact of climate change?<br>
+            Extreme weather events are already more intense, threatening lives and livelihoods.<br>
+
+            With further warming, some regions could become uninhabitable, as farmland turns into desert. In other regions, the opposite is happening, with extreme rainfall causing historic flooding - as seen recently in China, Germany, Belgium and the Netherlands.<br>
+
+            People in poorer countries will suffer the most as they do not have the money to adapt to climate change. Many farms in developing countries already have to endure climates that are too hot and this will only get worse.<br>
+
+            Infographic<br><br>
+            Our oceans and its habitats are also under threat. The Great Barrier Reef in Australia, for example, has already lost half of its corals since 1995 due to warmer seas driven by climate change.<br>
+
+            Wildfires are becoming more frequent as climate change increases the risk of hot, dry weather.<br>
+
+            And as frozen ground melts in places like Siberia, greenhouse gases trapped for centuries will be released into the atmosphere, worsening climate change.<br>
+
+            In a warmer world, animals will find it harder to find the food and water they need to live. For example, polar bears could die out as the ice they rely on melts away, and elephants will struggle to find the 150-300 litres of water a day they need.<br>
+
+            Scientists believe at least 550 species could be lost this century if action is not taken.<br>
+
+            Coral reef<br>
+            IMAGE SOURCE,GETTY IMAGES<br>
+            Image caption,<br>
+            If temperatures continue to rise, almost all warm water coral reefs could be destroyed<br>
+            How will different parts of the world be affected?<br>
+            Climate change has different effects in different areas of the world. Some places will warm more than others, some will receive more rainfall and others will face more droughts.<br>
+
+            If temperature rise cannot be kept within 1.5C:<br>
+
+            The UK and Europe will be vulnerable to flooding caused by extreme rainfall<br>
+            Countries in the Middle East will experience extreme heatwaves and farmland could turn to desert<br>
+            Island nations in the Pacific region could disappear under rising seas<br>
+            Many African nations are likely to suffer droughts and food shortages<br>
+            Drought conditions are likely in the western US, while other areas will see more intense storms<br>
+            Australia is likely to suffer extremes of heat and drought<br>
+            London floods<br>
+            IMAGE SOURCE,GETTY IMAGES<br>
+            Image caption,<br>
+            Intense downpours caused flooding in London in 2021<br>
+            What are governments doing?<br>
+            Countries agree climate change can only be tackled by working together, and in a landmark agreement in Paris in 2015, they pledged to try to keep global warming to 1.5C.<br>
+
+            The UK is hosting a summit for world leaders, called COP26, in November, where countries will set out their carbon reduction plans for 2030.<br>
+
+            Many countries have pledged to get to net zero by 2050. This means reducing greenhouse gas emissions as much as possible and balancing out remaining emissions by absorbing an equivalent amount from the atmosphere.<br>
+
+            Experts agree that this is achievable, but it will require governments, businesses and individuals to make big changes.<br>
+
+            What can individuals do?<br><br>
+            Major changes need to come from governments and businesses, but scientists say some small changes in our lives can limit our impact on the climate:<br>
+
+            Take fewer flights<br>
+            Live car-free or use an electric car<br>
+            Buy energy efficient products, such as washing machines, when they need replacing<br>
+            Switch from a gas heating system to an electric heat pump<br>
+            Insulate your home.<br>
+            More on climate summit top strapline<br>
+            The COP26 global climate summit in Glasgow in November is seen as crucial if climate change is to be brought under control. Almost 200 countries are being asked for their plans to cut emissions, and it could lead to major changes to our everyday lives.<br>
+
+            Why the COP26 climate summit is important<br>
+            What will climate change look like for you?<br>
+            Will the UK meet its climate targets?<br>
+            How extreme weather is linked to climate change<br>
+            More on Climate Change bottom strapline<br>
+            Top image from Getty Images. Climate stripes visualisation courtesy of Prof Ed Hawkins and University of Reading.<br>
+
+            line<br>
+            YQA logo<br>
+            IMAGE SOURCE,BBC<br>
+            What questions do you have about changes in our climate?<br>
+
+            In some cases your question will be published, displaying your name, age and location as you provide it, unless you state otherwise. Your contact details will never be published. Please ensure you have read our terms & conditions and privacy policy.<br>
+
+            Use this form to ask your question:<br>
+        </p><hr>
+        <span id="bottom">
+            <a href="#top">맨 위로</a>
+        </span>
+    </body>
+</html>

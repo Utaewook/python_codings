@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+
+    <!-- <script>
+        // 표준 이벤트 모델: addEventListener() 표준을 제일 많이 씀
+        // 고전 이벤트 모델: on@@
+        // 인라인 이벤트 모델: on@@ 으로 시작하는 속성을 HTML 요소에 직접 넣어 이벤트 연결
+        
+
+        // keydown(키가 눌릴때/꾹누를때/입력될때), keypress(키 입력시/아시아권 문자 오류), keyup(키보드에서 키가 떨어질때) 이벤트
+        // keyup으로 문자수 카운트한다.
+        document.addEventListener('DOMContentLoaded',()=>{
+            const textarea = document.querySelector('textarea')
+            const h1 =  document.querySelector('h1')
+
+            textarea.addEventListener('keyup',()=>{
+                const length = textarea.value.length
+                h1.textContent = `글자수 = ${length}`
+            })
+        })
+    </script> -->
+
+    <!-- <script>
+        // 키보드 키 코드 사용  ->  이벤트 속성 이름 = 선택자 형태
+        // code = 입력한 키, keyCode = 입력한 키를 나타내는 숫자
+        // altKey = Alt키를 눌렀는지, ctrlKey = Ctrl 키를 눌렀는지
+        // shiftKey = Shift키를 눌렀는지
+
+        document.addEventListener('DOMContentLoaded',()=>{
+            const h2 = document.querySelector('h2')
+            const print = (event)=>{
+                let output = ''
+                output += `alt: ${event.altKey}<br>`
+                output += `ctrl: ${event.ctrlKey}<br>`
+                output += `shift: ${event.shiftKey}<br>`
+                output += `code: ${typeof(event.code) !== 'undefined'? event.code:event.keyCode}<br>`
+                h2.innerHTML = output
+            }
+        })
+        document.addEventListener('keydown',print)
+        document.addEventListener('keyup',print)
+        
+    </script> -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const emoji = document.querySelector('h3')
+            emoji.style.position = 'absolute'
+
+            let [x,y] = [0,0]
+            const block = 20
+            const print=()=>{
+                emoji.style.left = `${x*block}px`
+                emoji.style.top = `${y*block}px`
+            }
+            print()
+
+            const [l,u,r,d] = [37,38,39,40] // 키코드
+            document.body.addEventListener('keydown',(event)=>{
+                switch(event.keyCode){
+                    case l :{
+                        x-=1
+                        break
+                    }
+                    case u :{
+                        y-=1
+                        break
+                    }
+                    case r :{
+                        x+=1
+                        break
+                    }
+                    case d :{
+                        y+=1
+                        break
+                    }
+                    print()
+                }
+            }) 
+        })
+    </script>
+    <script>
+        const lister = (event) =>{
+            const length = this.value.length // currenttarget, this
+            h4.textContent = `글자 수: ${length}`
+        }
+        document.addEventListener("DOMContentLoaded",()=>{
+            const textarea = document.querySelector('textarea')
+            const h4 = document.querySelector('h4')
+            textarea.addEventListener('keyup',lister)
+        })
+    </script>
+</head>
+<body>
+    <!-- <h1></h1>-->
+    <textarea></textarea>
+    <h2></h2>
+    <h3>😂</h3>
+    <h4></h4>
+</body>
+</html>

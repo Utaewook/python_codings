@@ -1,0 +1,32 @@
+        
+/*
+    파일명: hw1_2.txt
+    작성자: 유태욱
+    작성일자: 2022-09-05
+    주요기능: 직사각형의 가로, 세로, 중심 좌표 입력, 지정된 중심좌표에 직사각형을 그리는 알고리즘 유사코드
+    최종수정일자:2022-09-05
+    수정내용: 최초작성
+*/
+
+Procedure Rectangle_Draw()
+/* input argument: Rectangle width, height, center point*/
+/* output result: Rectangle drawing */
+
+INIT width = GET("직사각형의 가로 입력: ") // 직사각형의 가로를 입력받는다.
+INIT height = GET("직사각형의 세로 입력: ") // 직사각형의 세로를 입력받는다.
+INIT point_x = GET("직사각형의 가로 좌표 입력: ") // 직사각형의 가로 좌표를 입력받는다.
+INIT point_y = GET("직사각형의 세로 좌표 입력: ") // 직사각형의 세로 좌표를 입력받는다.
+
+INIT start_x,start_y = point_x - (width / 2), point_y - (height / 2) // 직사각형 그리기 시작할 좌표를 구한다(왼쪽 상단 모서리 좌표)
+
+set_start_point(start_x,start_y) // 그림 시작 커서의 위치를 지정한다.
+draw_line(width) // 가로 선분을 그린다.
+turn_right(90) // 그림 커서를 오른쪽으로 90도 회전한다
+draw_line(height) // 세로 선분을 그린다.
+turn_right(90) // 그림 커서를 오른쪽으로 90도 회전한다
+draw_line(width) // 가로 선분을 그린다.
+turn_right(90) // 그림 커서를 오른쪽으로 90도 회전한다
+draw_line(height) // 세로 선분을 그린다.
+turn_right(90) // 그림 커서를 오른쪽으로 90도 회전한다
+
+End Procedure /* end of procedure Rectangle_Draw()*/
