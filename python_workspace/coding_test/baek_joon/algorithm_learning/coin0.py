@@ -7,9 +7,19 @@ for _ in range(n):
         break
     coins.append(coin)
 
+count = k
 while coins:
     biggest_coin = coins.pop()
 
-    temp_k = k
-    while temp_k>0:
-        pass
+    rest_coins = coins[:]
+    temp_count, temp_k = k // biggest_coin, k % biggest_coin
+
+    while temp_k > 0:
+        coin = rest_coins.pop()
+        coin_count, temp_k = temp_k // coin, temp_k % coin
+
+        temp_count += coin_count
+
+    count = min(count, temp_count)
+
+print(count)
