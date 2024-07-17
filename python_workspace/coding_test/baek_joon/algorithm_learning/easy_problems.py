@@ -1,13 +1,36 @@
-n = int(input())
-wines = list(int(input()) for _ in range(n))
 
-dp = [[0] * 4 for _ in range(n)]
-dp[0] = [0, 0, wines[0], wines[0]]
+def dfs(e,r):
+    global visited, rank, count
+    visited[r] = True
+    count += 1
 
-for i in range(1, n):
-    dp[i] = [max(dp[i-1][0:2]),
-             max(dp[i-1][2:]),
-             max(dp[i-1][0:2]) + wines[i],
-             dp[i-1][2] + wines[i]]
+    rank[r] = count
 
-print(max(dp[n-1]))
+    for x in e[r]:
+        if not visited[x]:
+            dfs(e, x)
+
+n, m, start = map(int,input().split())
+graph = dict()
+for _ in range(m):
+    a,b = map(int,input().split())
+    if a in graph:
+        graph[a].append(b)
+    else:
+        graph[a] = [b]
+
+    if b in graph:
+        graph[b].append(a)
+    else:
+        graph[b] = [a]
+
+for node in graph:
+    graph[node].sort(reverse=True)
+
+visited = [False] * (n + 1)
+rank = [0] * (n + 1)
+count = 0
+
+dfs(graph,start)
+for i in range(1, len(rank)):
+    print(rank[i])
